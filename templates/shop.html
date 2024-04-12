@@ -1,0 +1,658 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>alora shop</title>
+        <style>
+            /* Buy Now button styling */
+            .btn-buy-now {
+                background-color: #8B4513; /* Brown color */
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                font-weight: bold;
+                transition: background-color 0.3s ease; /* Smooth transition */
+            }
+        
+            .btn-buy-now:hover {
+                background-color: #A0522D; /* Darker brown color on hover */
+            }
+        
+            /* Card styling */
+            .card {
+                width: 100%;
+                height: 100%;
+                border: none;
+                border-radius: 10px; /* Add border-radius to round the corners */
+                overflow: hidden; /* Hide any overflow content */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
+                transition: transform 0.3s, box-shadow 0.3s; /* Add transition for transform and box-shadow */
+                position: relative;
+            }
+        
+            .card-img-top {
+                width: 100%;
+                height: 200px; /* Set a fixed height for the images */
+                object-fit: cover; /* Ensure the images cover the entire space */
+            }
+        
+            .card-body {
+                padding: 20px;
+            }
+        
+            .card-title {
+                font-size: 18px;
+                margin-bottom: 10px;
+                color: var(--primary-color); /* Set title color */
+            }
+        
+            .card-text {
+                font-size: 16px;
+                margin-bottom: 15px;
+                color: var(--secondary-color); /* Set text color */
+            }
+        
+            .btn-primary {
+                background-color: var(--accent-color); /* Set button background color */
+                color: var(--white-color); /* Set button text color */
+                border: none; /* Remove button border */
+            }
+        
+            .btn-primary:hover {
+                background-color: var(--accent-color-dark); /* Darken button background on hover */
+            }
+        
+            .card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(45deg, #FFD700, #FF6347); /* Gold to Tomato gradient */
+                opacity: 0;
+                transition: opacity 0.3s ease; /* Smooth transition */
+                z-index: -1; /* Behind the card content */
+            }
+        
+            .card:hover::before {
+                opacity: 0.8; /* Show gradient overlay on hover */
+            }
+        
+            .card:hover {
+                transform: scale(1.05); /* Scale up card on hover */
+                box-shadow: 0 0 20px rgba(139, 69, 19, 0.5); /* Add brown box shadow on hover */
+            }
+        </style>
+        
+        <!-- CSS FILES -->                
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,400;0,600;0,700;1,200;1,700&display=swap" rel="stylesheet">
+            
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/bootstrap-icons.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/vegas.min.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/tooplate-barista.css' %}" rel="stylesheet">
+        
+
+    </head>
+    
+    <body>
+                
+            <main>
+                <nav class="navbar navbar-expand-lg">                
+                    <div class="container">
+                        <a class="navbar-brand d-flex align-items-center" href="">
+                            <img src="{% static 'images/coffee-beans.png' %}" class="navbar-brand-image img-fluid" alt="Barista Cafe Template">
+                            ALORA
+                        </a>
+        
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+        
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav ms-lg-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link " href="{% url 'index' %}">Home</a>
+                                </li>
+        
+                                <li class="nav-item">
+                                    <a class="nav-link click-scroll" href="#section_2">About</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link click-scroll" href="#section_3">Newly added</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link click-scroll" href="#section_4">Reviews</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link click-scroll" href="#section_5">Contact</a>
+                                </li>
+                            </ul>
+
+                            
+                        </div>
+                    </div>
+                </nav>
+
+
+                <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+
+                    <div class="container">
+                        <div class="row align-items-center">
+
+                            <div class="col-lg-6 col-12 mx-auto">
+                                <em class="small-text">Alora welcomes You</em>
+                                
+                                <h1>ALORA FURNITURES</h1>
+
+                                <p class="text-white mb-4 pb-lg-2">
+                                    your <em>customized</em> furniture daily lives.
+                                </p>
+
+                                <a class="btn custom-btn custom-border-btn smoothscroll me-3" href="#section_2">
+                                    Our Story
+                                </a>
+
+                                <a class="btn custom-btn smoothscroll me-2 mb-2" href="#section_3"><strong>Check collections</strong></a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="hero-carousel">
+                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="{% static 'images/team/1.jpeg' %}" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{% static 'images/team/2.jpeg' %}" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{% static 'images/team/3.jpeg' %}" class="d-block w-100" alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    
+                </section>
+
+
+                <section class="menu-section section-padding" style="background-color:  #BC6C25;" id="section_3">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-lg-6 col-12 mb-4 mb-lg-0">
+                                <div class="menu-block-wrap">
+                                    <div class="text-center mb-4 pb-lg-2">
+                                        <em class="text-white">Limited </em>
+                                        <h4 class="text-white">EXCLUSIVE OFFER</h4>
+                                    </div>
+
+                                    <div class="menu-block">
+                                        <div class="d-flex">
+                                            <h6>Wall swings</h6>
+                                        
+                                            <span class="underline"></span>
+
+                                            
+                                            <strong class="text-white ms-auto"><del>₹39,900</del></strong>
+
+                                            <strong class="ms-2">₹37,900</strong>
+                                        </div>
+
+                                        <div class="border-top mt-2 pt-2">
+                                            <small></small>
+                                        </div>
+                                    </div>
+
+                                    <div class="menu-block my-4">
+                                        <div class="d-flex">
+                                            <h6>
+                                                Elegant Chair
+                                            </h6>
+                                        
+                                            <span class="underline"></span>
+
+                                            <strong class="text-white ms-auto"><del>₹22,800</del></strong>
+
+                                            <strong class="ms-2">₹20,900</strong>
+                                        </div>
+
+                                        <div class="border-top mt-2 pt-2">
+                                            <small></small>
+                                        </div>
+                                    </div>
+
+                                    <div class="menu-block">
+                                        <div class="d-flex">
+                                            <h6>Wooden Bed
+                                                <span class="badge ms-3">Recommended</span>
+                                            </h6>
+                                        
+                                            <span class="underline"></span>
+
+                                            <strong class="ms-auto">₹56000</strong>
+                                        </div>
+
+                                        <div class="border-top mt-2 pt-2">
+                                            <small></small>
+                                        </div>
+                                    </div>
+
+                                    <div class="menu-block my-4">
+                                        <div class="d-flex">
+                                            <h6>SNIGLAR</h6>
+                                        
+                                            <span class="underline"></span>
+
+                                            <strong class="ms-auto">₹17000</strong>
+                                        </div>
+
+                                        <div class="border-top mt-2 pt-2">
+                                            <small></small>
+                                        </div>
+                                    </div>
+
+                                    <div class="menu-block">
+                                        <div class="d-flex">
+                                            <h6>Babycare mat</h6>
+                                        
+                                            <span class="underline"></span>
+
+                                            <strong class="ms-auto">₹1900</strong>
+                                        </div>
+
+                                        <div class="border-top mt-2 pt-2">
+                                            <small>53x80x2 cm (21x31x1 ")</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-12 mb-4 mb-lg-0">
+                                <div class="menu-block-wrap">
+                                    <div class="text-center mb-4 pb-lg-2">
+                                        <em class="text-white">Limited </em>
+                                        <h4 class="text-white">EXCLUSIVE OFFER</h4>
+                                    </div>
+
+                                    <div class="menu-block">
+                                        <div class="d-flex">
+                                            <h6>Wall swings</h6>
+                                        
+                                            <span class="underline"></span>
+
+                                            
+                                            <strong class="text-white ms-auto"><del>₹39,900</del></strong>
+
+                                            <strong class="ms-2">₹37,900</strong>
+                                        </div>
+
+                                        <div class="border-top mt-2 pt-2">
+                                            <small></small>
+                                        </div>
+                                    </div>
+
+                                    <div class="menu-block my-4">
+                                        <div class="d-flex">
+                                            <h6>
+                                                Elegant Chair
+                                            </h6>
+                                        
+                                            <span class="underline"></span>
+
+                                            <strong class="text-white ms-auto"><del>₹22,800</del></strong>
+
+                                            <strong class="ms-2">₹20,900</strong>
+                                        </div>
+
+                                        <div class="border-top mt-2 pt-2">
+                                            <small></small>
+                                        </div>
+                                    </div>
+
+                                    <div class="menu-block">
+                                        <div class="d-flex">
+                                            <h6>Wooden Bed
+                                                <span class="badge ms-3">Recommended</span>
+                                            </h6>
+                                        
+                                            <span class="underline"></span>
+
+                                            <strong class="ms-auto">₹56000</strong>
+                                        </div>
+
+                                        <div class="border-top mt-2 pt-2">
+                                            <small></small>
+                                        </div>
+                                    </div>
+
+                                    <div class="menu-block my-4">
+                                        <div class="d-flex">
+                                            <h6>SNIGLAR</h6>
+                                        
+                                            <span class="underline"></span>
+
+                                            <strong class="ms-auto">₹17000</strong>
+                                        </div>
+
+                                        <div class="border-top mt-2 pt-2">
+                                            <small></small>
+                                        </div>
+                                    </div>
+
+                                    <div class="menu-block">
+                                        <div class="d-flex">
+                                            <h6>Babycare mat</h6>
+                                        
+                                            <span class="underline"></span>
+
+                                            <strong class="ms-auto">₹1900</strong>
+                                        </div>
+
+                                        <div class="border-top mt-2 pt-2">
+                                            <small>53x80x2 cm (21x31x1 ")</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+                <section class="furniture-section section-padding" style="background-color: var(--secondary-color);" id="section_3">
+                    <div class="container">
+                        <div class="row">
+                
+                            <!-- Card 1 -->
+                            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                                <div id="carouselExample1" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="{% static 'l.avif' %}" class="d-block w-100" alt="">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="{% static 'j.avif' %}" class="d-block w-100" alt="">
+                                        </div>
+                                        <!-- Add more images for different angles -->
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample1" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample1" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Elegant Chair</h5>
+                                    <p class="card-text">$99.99</p>
+                                    <a href="#" class="btn btn- btn-buy-now" style="background-color: #A0522D; color: aliceblue; ">Buy Now</a>
+                                </div>
+                            </div>
+                
+                            <!-- Card 2 -->
+                            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                                <div id="carouselExample2" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="{% static 'k.avif' %}" class="d-block w-100" alt="Furniture 2">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="{% static 'k1.avif' %}" class="d-block w-100" alt="Furniture 2">
+                                        </div>
+                                        <!-- Add more images for different angles -->
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample2" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample2" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Modern Sofa</h5>
+                                    <p class="card-text">$299.99</p>
+                                    <a href="#" class="btn btn- btn-buy-now" style="background-color: #A0522D; color: aliceblue; ">Buy Now</a>
+                                </div>
+                            </div>
+                
+                            <!-- Add more cards here -->
+                            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                                <div id="carouselExample1" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="{% static 'u.avif' %}" class="d-block w-100" alt="">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="{% static 'u1.avif' %}" class="d-block w-100" alt="">
+                                        </div>
+                                        <!-- Add more images for different angles -->
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample1" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample1" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">SNIGLAR</h5>
+                                    <p class="card-text">$99.99</p>
+                                    <a href="#" class="btn btn- btn-buy-now" style="background-color: #A0522D; color: aliceblue; ">Buy Now</a>
+                                </div>
+                            </div>
+                <!-- card 4 -->
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <div id="carouselExample1" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="{% static 'p.avif' %}" class="d-block w-100 img-fluid" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{% static 'p1.avif' %}" class="d-block w-100 img-fluid" alt="">
+                            </div>
+                            <!-- Add more images for different angles -->
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample1" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample1" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Wooden Bed</h5>
+                        <p class="card-text">$99.99</p>
+                        <a href="#" class="btn btn- btn-buy-now" style="background-color: #A0522D; color: aliceblue; ">Buy Now</a>
+                    </div>
+                </div>
+              
+                
+                        </div>
+                    </div>
+                </section>
+                
+
+
+
+
+                <section class="contact-section section-padding" id="section_5">
+                    <div class="container">
+                        <div class="row">   
+
+                            <div class="col-lg-12 col-12">
+                                <em class="text-white">Say Hello</em>
+                                <h2 class="text-white mb-4 pb-lg-2">Contact</h2>
+                            </div>
+
+                            <div class="col-lg-6 col-12">
+                                <form action="#" method="post" class="custom-form contact-form" role="form">
+
+                                <div class="row">
+                                    
+                                    <div class="col-lg-6 col-12">
+                                        <label for="name" class="form-label">Name <sup class="text-danger">*</sup></label>
+
+                                        <input type="text" name="name" id="name" class="form-control" placeholder="Jackson" required="">
+                                    </div>
+
+                                    <div class="col-lg-6 col-12">
+                                        <label for="email" class="form-label">Email Address</label>
+
+                                        <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Jack@gmail.com" required="">
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label for="message" class="form-label">How can we help?</label>
+
+                                        <textarea name="message" rows="4" class="form-control" id="message" placeholder="Message" required=""></textarea>
+                                        
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-5 col-12 mx-auto mt-3">
+                                    <button type="submit" class="form-control">Send Message</button>
+                                </div>
+                            </form>
+                            </div>
+
+                            <div class="col-lg-6 col-12 mx-auto mt-5 mt-lg-0 ps-lg-5">
+                                <iframe class="google-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5039.668141741662!2d72.81814769288509!3d19.043340656729775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c994f34a7355%3A0x2680d63a6f7e33c2!2sLover%20Point!5e1!3m2!1sen!2sth!4v1692722771770!5m2!1sen!2sth" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>  
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+
+
+
+                <footer class="site-footer">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-lg-4 col-12 me-auto">
+                                <em class="text-white d-block mb-4">Where to find us?</em>
+
+                                <strong class="text-white">
+                                    <i class="bi-geo-alt me-2"></i>
+                                    Bandra West, Mumbai, Maharashtra 400050, India
+                                </strong>
+
+                                <ul class="social-icon mt-4">
+                                    <li class="social-icon-item">
+                                        <a href="#" class="social-icon-link bi-facebook">
+                                        </a>
+                                    </li>
+        
+                                    <li class="social-icon-item">
+                                        <a href="https://x.com/minthu" target="_new" class="social-icon-link bi-twitter">
+                                        </a>
+                                    </li>
+
+                                    <li class="social-icon-item">
+                                        <a href="#" class="social-icon-link bi-whatsapp">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col-lg-3 col-12 mt-4 mb-3 mt-lg-0 mb-lg-0">
+                                <em class="text-white d-block mb-4">Contact</em>
+
+                                <p class="d-flex mb-1">
+                                    <strong class="me-2">Phone:</strong>
+                                    <a href="tel: 305-240-9671" class="site-footer-link">
+                                        (65) 
+                                        305 2409 671
+                                    </a>
+                                </p>
+
+                                <p class="d-flex">
+                                    <strong class="me-2">Email:</strong>
+
+                                    <a href="mailto:info@yourgmail.com" class="site-footer-link">
+                                        hello@aloha.co
+                                    </a>
+                                </p>
+                            </div>
+
+
+                            <div class="col-lg-5 col-12">
+                                <em class="text-white d-block mb-4">Open</em>
+
+                                <ul class="opening-hours-list">
+                                    <li class="d-flex">
+                                        Monday - friday
+                                        <span class="underline"></span>
+
+                                        <strong>9:00 am- 9:00</strong>
+                                    </li>
+
+                                    <li class="d-flex">
+                                        Saturday
+                                        <span class="underline"></span>
+
+                                        <strong>11:00 - 16:30</strong>
+                                    </li>
+
+                                    <li class="d-flex">
+                                        Sunday
+                                        <span class="underline"></span>
+
+                                        <strong>Closed</strong>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col-lg-8 col-12 mt-4">
+                                <p class="copyright-text mb-0">Copyright © Aloha Furnitures 
+                                    - Design: <a rel="sponsored" href="" target="_blank">Altos      </a></p>
+                            </div>
+                    </div>
+                </footer>
+            </main>
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/jquery.sticky.js' %}"></script>
+        <script src="{% static 'js/click-scroll.js' %}"></script>
+        

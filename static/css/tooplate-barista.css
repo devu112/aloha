@@ -736,7 +736,14 @@ strong {
   REVIEWS              
 -----------------------------------------*/
 .reviews-section {
-  background-color: #7c5c52;
+  background: linear-gradient(rgba(124, 92, 82, 0.8), rgba(124, 92, 82, 0.8)),;
+  background-image: url();
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.reviews-section:hover {
+  background-color: rgba(172, 105, 53, 0.8); /* Adjust the opacity as needed */
 }
 
 .reviews-block {
@@ -751,7 +758,7 @@ strong {
 }
 
 .reviews-block-image-wrap {
-  background-image: url('../images/mid-section-waitress-wiping-espresso-machine-with-napkin-cafa-c.jpg');
+  background-image: url('../images/ding.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -834,7 +841,7 @@ strong {
   CONTACT               
 -----------------------------------------*/
 .contact-section {
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(188, 108, 37, 1)), url('../images/young-female-barista-wear-face-mask-serving-take-away-hot-coffee-paper-cup-consumer-cafe.jpg');
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(188, 108, 37, 1)), url('../images/dong.avif');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
